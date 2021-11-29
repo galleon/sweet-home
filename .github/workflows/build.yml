@@ -89,8 +89,8 @@ jobs:
 
       - name: Test with pytest
         run: |
-          pip install --pre --find-links ./wheels/ "scikit-decide[all]"
-          pytest -v -s tests/*
+          pip install --pre --find-links ./wheels/ housing
+          pytest -v -s tests/
 
   upload:
     needs: [tests]

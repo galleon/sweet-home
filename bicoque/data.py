@@ -1,9 +1,7 @@
+import pandas as pd
+from google.cloud import storage
 from scipy.sparse import data
 from sklearn.model_selection import train_test_split
-
-from google.cloud import storage
-
-import pandas as pd
 
 
 def get_data(line_count: int, data_url: str):
@@ -85,6 +83,6 @@ def holdout(df):
 
 
 if __name__ == "__main__":
-    df = get_data(1_000)
+    df = get_data(1_000, "../raw_data/train.csv")
     print(df.head())
     save_model_to_gcp()
