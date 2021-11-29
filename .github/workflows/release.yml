@@ -118,7 +118,7 @@ jobs:
       - name: Publish distribution 📦 to PyPI
         env:
           PYPI_TOKEN: ${{ secrets.PYPI_PASSWORD }}
-        if: github.repository == 'galleon/sweet-home && env.PYPI_TOKEN != ''
+        if: github.repository == 'galleon/sweet-home' && env.PYPI_TOKEN != ''
         uses: pypa/gh-action-pypi-publish@master
         with:
           password: ${{ secrets.PYPI_PASSWORD }}
