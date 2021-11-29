@@ -115,4 +115,3 @@ jobs:
           tag: ${{ steps.get_version.outputs.VERSION }}
           overwrite: true
           file_glob: true
-
