@@ -91,27 +91,3 @@ jobs:
         run: |
           pip install --pre --find-links ./wheels/ housing
           pytest -v -s tests/
-
-  upload:
-    needs: [tests]
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v1.0.0
-        with:
-          name: wheels
-
-      - name: Get the version
-        id: get_version
-        run: |
-          echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-
-      - name: Upload artifacts 📦 to release
-        uses: svenstaro/upload-release-action@v1-release
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: wheels/*.whl
-          tag: ${{ steps.get_version.outputs.VERSION }}
-          overwrite: true
-          file_glob: true
