@@ -1,3 +1,5 @@
 include requirements.txt
 graft house
 global-exclude *.py[cod] __pycache__ *.so *.ipynb
+include versioneer.py
+include bicoque/_version.py

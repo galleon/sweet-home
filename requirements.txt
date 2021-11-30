@@ -2,6 +2,7 @@
 pip>=9
 setuptools>=26
 twine
+versioneer
 wheel>=0.29
 
 # data science
